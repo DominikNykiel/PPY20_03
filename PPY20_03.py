@@ -92,4 +92,11 @@ if gameMode == "1p":
                 choicePLtrue == "papier" and choiceCPUtrue == "kamień"):
             print("Wygrywa gracz 1 : ", player1)
             score1p += 1
-
+        else:
+            if (choicePLtrue == "nożyce" and choiceCPUtrue == "kamień") or (
+                    choicePLtrue == "papier" and choiceCPUtrue == "nożyce") or (
+                    choicePLtrue == "kamień" and choiceCPUtrue == "papier"):
+                print("Wygrywa gracz komputerowy : ", player2)
+                score2p += 1
+            else:
+                print("Remis!")
