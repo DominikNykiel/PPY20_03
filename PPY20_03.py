@@ -1,5 +1,6 @@
 import random
 import sys
+import getpass
 
 # Zad1
 
@@ -100,3 +101,73 @@ if gameMode == "1p":
                 score2p += 1
             else:
                 print("Remis!")
+    if score1p > score2p:
+        print("Wygrywa gracz: ", player1)
+    else:
+        if score2p > score1p:
+            print("Wygrywa gracz: ", player2)
+        else:
+            print("Remis!")
+else:
+    for i in range(1, rounds + 1):
+        print("Zaczyna się runda ", str(i))
+        print("Ruch gracza pierwszego...")
+        print("1 = papier, 2 = nożyce, 3 = kamień")
+        while True:
+            choicePL = getpass.getpass("Wybierz przedmiot...\n")
+
+            try:
+                a = int(choicePL)
+            except ValueError:
+                print("Niepoprawna liczba!")
+                continue
+
+            if choicePL in range(1, 4):
+
+                break
+            else:
+                print("Niepoprawna komenda!")
+                continue
+
+        print("Ruch gracza drugiego...")
+        print("1 = papier, 2 = nożyce, 3 = kamień")
+        while True:
+            choiceP2 = getpass.getpass("Wybierz przedmiot...\n")
+
+            try:
+                a = int(choiceP2)
+            except ValueError:
+                print("Niepoprawna liczba!")
+                continue
+
+            if choicePL in range(1, 4):
+
+                break
+            else:
+                print("Niepoprawna komenda!")
+                continue
+
+
+        choicePLtrue = rcp_list[choicePL - 1]
+        choiceP2true = rcp_list[choiceP2]
+
+        if (choicePLtrue == "kamień" and choiceP2true == "nożyce") or (
+                choicePLtrue == "nożyce" and choiceP2true == "papier") or (
+                choicePLtrue == "papier" and choiceP2true == "kamień"):
+            print("Wygrywa gracz 1 : ", player1)
+            score1p += 1
+        else:
+            if (choicePLtrue == "nożyce" and choiceP2true == "kamień") or (
+                    choicePLtrue == "papier" and choiceP2true == "nożyce") or (
+                    choicePLtrue == "kamień" and choiceP2true == "papier"):
+                print("Wygrywa gracz drugi : ", player2)
+                score2p += 1
+            else:
+                print("Remis!")
+    if score1p > score2p:
+        print("Wygrywa gracz: ", player1)
+    else:
+        if score2p > score1p:
+            print("Wygrywa gracz: ", player2)
+        else:
+            print("Remis!")
