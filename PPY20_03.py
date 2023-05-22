@@ -61,7 +61,7 @@ score1p = 0
 score2p = 0
 
 if gameMode == "1p":
-    for i in range(1, rounds + 1):
+    for i in range(1, int(rounds) + 1):
         print("Zaczyna się runda ", str(i))
         print("Ruch gracza pierwszego...")
         print("1 = papier, 2 = nożyce, 3 = kamień")
@@ -74,8 +74,8 @@ if gameMode == "1p":
                 print("Niepoprawna liczba!")
                 continue
 
-            if choicePL in range(1, 4):
-                print("Wybrałeś ", rcp_list[choicePL - 1])
+            if int(choicePL) in range(1, 4):
+                print("Wybrałeś ", rcp_list[int(choicePL) - 1])
                 break
             else:
                 print("Niepoprawna komenda!")
@@ -85,7 +85,7 @@ if gameMode == "1p":
         choiceCPU = random.randint(0, 2)
         print("Komputer wybrał ", rcp_list[choiceCPU])
 
-        choicePLtrue = rcp_list[choicePL - 1]
+        choicePLtrue = rcp_list[int(choicePL) - 1]
         choiceCPUtrue = rcp_list[choiceCPU]
 
         if (choicePLtrue == "kamień" and choiceCPUtrue == "nożyce") or (
@@ -109,7 +109,7 @@ if gameMode == "1p":
         else:
             print("Remis!")
 else:
-    for i in range(1, rounds + 1):
+    for i in range(1, int(rounds) + 1):
         print("Zaczyna się runda ", str(i))
         print("Ruch gracza pierwszego...")
         print("1 = papier, 2 = nożyce, 3 = kamień")
@@ -122,7 +122,7 @@ else:
                 print("Niepoprawna liczba!")
                 continue
 
-            if choicePL in range(1, 4):
+            if int(choicePL) in range(1, 4):
 
                 break
             else:
@@ -140,16 +140,15 @@ else:
                 print("Niepoprawna liczba!")
                 continue
 
-            if choicePL in range(1, 4):
+            if int(choiceP2) in range(1, 4):
 
                 break
             else:
                 print("Niepoprawna komenda!")
                 continue
 
-
-        choicePLtrue = rcp_list[choicePL - 1]
-        choiceP2true = rcp_list[choiceP2]
+        choicePLtrue = rcp_list[int(choicePL) - 1]
+        choiceP2true = rcp_list[int(choiceP2) - 1]
 
         if (choicePLtrue == "kamień" and choiceP2true == "nożyce") or (
                 choicePLtrue == "nożyce" and choiceP2true == "papier") or (
